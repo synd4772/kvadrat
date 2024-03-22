@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "kvadrat", "kvadrat.pyproj", "{DD5F86F3-C6B1-4639-99F0-3FF55FCC0782}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD5F86F3-C6B1-4639-99F0-3FF55FCC0782}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD5F86F3-C6B1-4639-99F0-3FF55FCC0782}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0E820020-33F1-4FE5-B65F-92FC964B08D5}
+	EndGlobalSection
+EndGlobal
