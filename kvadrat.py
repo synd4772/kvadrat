@@ -66,7 +66,6 @@ f_button_f_frame = Button(f_frame, text="Решить", bg = "green", fg = "blac
 
 f_frame_elements = [f_entry_f_frame, f_label_f_frame, s_entry_f_frame, s_label_f_frame, t_entry_f_frame, t_label_f_frame, fo_label_f_frame]
 for element in f_frame_elements: 
-    print(type(element))
     element.config(fg = default_fg, font = default_font)
     element.pack(side = "left")
 f_button_f_frame.pack(side = "left")
