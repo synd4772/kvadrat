@@ -130,7 +130,52 @@ def babochka():
     plt.xlabel("x")
     plt.grid(True)
     plt.show()
-func_list = [kala, prillid, zontik, babochka]
+
+def kilpkonn():
+    x1 = np.arange(-7, 7.5, 0.5)
+    x2 = np.arange(-7, 7.5, 0.5)
+    x3 = np.arange(-6.8, -1.5, 0.5)
+    x4 = np.arange(2, 7.3, 0.5)
+    x5 = np.arange(-5, -2.3, 0.5)
+    x6 = np.arange(2, 6.3, 0.5)
+    x7 = np.arange(-4, 4.5, 0.5)
+    x8 = np.arange(-5, 5.7, 0.5)
+    x9 = np.arange(-7, -1.7, 0.5)
+    x10 = np.arange(2.8,7.5,0.5)
+    x11 = np.arange(-7,0.5,0.5)
+    x12 = np.arange(0,7.5,0.5)
+    x13 = np.arange(-7,-4,0.5)
+    x14 = np.arange(4.5,7.5,0.5)
+    x15 = np.arange(-3,3.5,0.5)
+
+
+    y1= (-3/49)*x1**2+8
+    y2= (4/49)*x2**2+1
+    y3= -0.75*(x3+4)**2+11
+    y4= -0.75*(x4-4)**2+11
+    y5= -(x5+4)**2+9
+    y6= -(x6-4)**2+9
+    y7= (4/9)*x7**2-5
+    y8= (4/9)*x8**2-9
+    y9= (-1/16)*(x9+3)**2-6
+    y10= (-1/16)*(x10-3)**2-6
+    y11 = (1/9)*(x11+4)**2-11
+    y12= (1/9)*(x12-4)**2-11
+    y13= -1*(x13+5)**2
+    y14= -1*(x14-5)**2
+    y15= (2/9)*x15**2+2
+   
+
+    plt.figure()
+    
+    plt.plot(x1,y1,"b-d",x2,y2,"b-d",x3,y3,"b-d",x4,y4,"b-d",x5,y5,"b-d",x6,y6,"b-d",x7,y7,"b-d",x8,y8,"b-d",x9,y9,"b-d",x10,y10,"b-d", x11,y11,"b-d",x12,y12,"b-d",x13,y13,"r-d",x14,y14,"r-d",x15,y15,"r-d")
+    plt.title("Liblikas")
+    plt.ylabel("y")
+    plt.xlabel("x")
+    plt.grid(True)
+    plt.show()
+
+func_list = [kala, prillid, zontik, babochka, kilpkonn]
 #
 #+--------------------------------------------------------------------------------------------------+
 
@@ -280,7 +325,7 @@ s_frame = Frame(root, width=200, height = 200)
 show_another = False
 var = IntVar()
 radiobuttons = list()
-radiobuttons_config = ["kala","prillid","zontik","liblikas"]
+radiobuttons_config = ["kala","prillid","zontik","liblikas", "kilpkonn"]
 for index,i in enumerate(radiobuttons_config):
     radiobuttons.append(Radiobutton(s_frame, text=i, variable=var, value = index + 1))
 
