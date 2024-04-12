@@ -26,30 +26,28 @@ def ValuesCheck(*args):
 def mainEx():
     first, second, third = GetAllEntrys()
     if ValuesCheck(first, second, third):
-        if first == "" or second == "" or third == "":
-            mb.showwarning("Tähelepanu!", "On vaja siseta üks sõna")
-            return
-        d = desc(first, second, third)
-        f_x, s_x = find_x(d, first, second)
+        d = GetDiscriminant(first, second, third)
+        f_x, s_x = find_xy(d)
 
-        result_label_f_frame.config(text = f"D = {d}\nx1 = {f_x}\nx2 = {s_x}")
+        result_label_f_frame.config(text = f"D = {int(d)},\nx1 = {f_x},\nx2 = {s_x}")
+    else:
+        mb.showwarning("Внимание", "Неправильные значение, проверьте нету ли пустых записей или букв в записях")
 
-def desc(first, second, third):
+def GetDiscriminant(first, second, third):
     return (float(second) ** 2.) - (4. * float(first) * float(third))
 
-def find_x(d, first, second):
+def find_xy(d):
+    first, second, third = GetAllEntrys()
     if d < 0:
-        return "net kornej", "net kornej"
+        return "Нет корней", "Нет корней"
     else:
-        print(first, second)
-        f_x_f = (float(second) * -1.) + math.isqrt(d) 
-        print((float(second) * -1.), f_x_f, math.isqrt(4.))
-        f_x_s = f_x_f / (2. * float(first))
+        f_x_f = (second * -1.) + math.sqrt(int(d)) 
+        f_x_s = f_x_f / (2. * first)
 
-        s_x_f = (float(second) * -1.) - math.isqrt(d)
-        s_x_s = s_x_f / (2. * float(first))
+        s_x_f = (second * -1.) - math.sqrt(int(d))
+        s_x_s = float(s_x_f) / (2 * first)
 
-    return f_x_s, s_x_s
+    return round(f_x_s, 2), round(s_x_s, 2)
 
 
 def grafik():
@@ -57,7 +55,7 @@ def grafik():
     if ValuesCheck(first, second, third):
         x0 = (-second) / (2 * first)
         y0 = first * x0 + second * x0 + third
-        x1 = np.arange(x0-10., x0+10., 0.5)
+        x1 = np.arange(x0 - 10., x0 + 10., 0.5)
         y1 = first * x1 * x1 + second * x1 + third
         fig = plt.figure()
         plt.plot(x1, y1, "r-d")
@@ -66,6 +64,8 @@ def grafik():
         plt.xlabel("x")
         plt.grid(True)
         plt.show()
+    else:
+        mb.showwarning("Внимание", "Неправильные значение, проверьте нету ли пустых записей или букв в записях")
   
 #+--------------------------------------------------------------------------------------------------+
 #+--------------------------------------------------------------------------------------------------+
@@ -75,7 +75,7 @@ default_bg = "blue"
 default_fg = "green"
 
 root = Tk()
-root.geometry("700x400")
+root.geometry("900x400")
 
 main_label = Label(root, text = "Решение квадратного уравнения", bg = default_bg, fg=default_fg, font = default_font)
 main_label.pack()
