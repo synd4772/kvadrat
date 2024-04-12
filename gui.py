@@ -123,7 +123,7 @@ def babochka():
     y16= 1.5*x16+2
 
     plt.figure()
-    plt.plot(x1,y1,"r-d",x2,y2,"r-d",x3,y3,"r-d",x4,y4,"r-d",x5,y5,"r-d",x6,y6,"r-d",x7,y7,"r-d",x8,y8,"r-d",x9,y9,"r-d",x10,y10,"r-d", x11,y11,"r-d",x12,y12,"r-d",x13,y13,"r-d",x14,y14,"r-d",x15,y15,"r-d",x16,y16,"r-d")
+    plt.plot(x1,y1,"b-d",x2,y2,"b-d",x3,y3,"b-d",x4,y4,"b-d",x5,y5,"b-d",x6,y6,"b-d",x7,y7,"b-d",x8,y8,"b-d",x9,y9,"b-d",x10,y10,"b-d", x11,y11,"b-d",x12,y12,"b-d",x13,y13,"r-d",x14,y14,"r-d",x15,y15,"r-d",x16,y16,"r-d")
     plt.title("Liblikas")
     plt.ylabel("y")
     plt.xlabel("x")
@@ -139,10 +139,8 @@ def ShowAnother():
         t_button_f_frame['text'] = "Скрыть"
         root.geometry(f"{g_x}x{800}")
         s_frame.pack()
-        R1.pack()
-        R2.pack()
-        R3.pack()
-        R4.pack()
+        for radiobutton in radiobuttons:
+            radiobutton.pack()
         show_another = True
     else:
         t_button_f_frame['text'] = "Раскрыть"
@@ -284,10 +282,10 @@ result_label_f_frame.pack()
 s_frame = Frame(root, width=200, height = 200)
 show_another = False
 var = IntVar()
-R1 = Radiobutton(s_frame, text="kala", variable=var, value = 1)
-R2 = Radiobutton(s_frame, text="prillid", variable=var, value = 2)
-R3 = Radiobutton(s_frame, text="zontik", variable=var, value = 3 )
-R4 = Radiobutton(s_frame, text="liblikas", variable=var, value = 4)
+radiobuttons = list()
+radiobuttons_config = ["kala","prillid","zontik","liblikas"]
+for index,i in enumerate(radiobuttons_config):
+    radiobuttons.append(Radiobutton(s_frame, text=i, variable=var, value = index + 1))
 
 
 #Starting
