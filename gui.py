@@ -70,17 +70,23 @@ def grafik():
 #+--------------------------------------------------------------------------------------------------+
 #+--------------------------------------------------------------------------------------------------+
 
+#Default parameters
 default_font = ("Arial", 20)
 default_bg = "blue"
 default_fg = "green"
 
+#Window config
 root = Tk()
 root.geometry("900x400")
 
+#Main Text
 main_label = Label(root, text = "Решение квадратного уравнения", bg = default_bg, fg=default_fg, font = default_font)
 main_label.pack()
 
+#Main Frame
 f_frame = Frame(root)
+
+#Labels
 label_list_text = ["x²+", "x+", "=", "0"]
 label_list = list()
 for index, i in enumerate(label_list_text):
@@ -90,23 +96,23 @@ s_label_f_frame = label_list[1]
 t_label_f_frame = label_list[2]
 fo_label_f_frame = label_list[3]
 
+#Entrys
 entry_list = list()
 for i in range(3):
     entry_list.append(Entry(f_frame, width = 10, bg = default_bg))
-
 f_entry_f_frame = entry_list[0]
 s_entry_f_frame = entry_list[1]
 t_entry_f_frame = entry_list[2]
 
+#Buttons
 button_config = [[Calculate, "Решить"], [grafik, "График"]]
 buttons_list = list()
-
 for index, i  in enumerate(button_config):
     buttons_list.append(Button(f_frame, text=button_config[index][1], bg = "green", fg = "black", activeforeground="black", disabledforeground="black", font = default_font,command = button_config[index][0]))
-
 f_button_f_frame = buttons_list[0]
 s_button_f_frame = buttons_list[1]
 
+#Packing
 f_frame_elements = [f_entry_f_frame, f_label_f_frame, s_entry_f_frame, s_label_f_frame, t_entry_f_frame, t_label_f_frame, fo_label_f_frame]
 for element in f_frame_elements: 
     element.config(fg = default_fg, font = default_font)
@@ -119,4 +125,7 @@ f_frame.pack()
 result_label_f_frame = Label(root, text="Решение", bg = "yellow", fg = "black", font = default_font)
 result_label_f_frame.pack()
 
+#Starting
 root.mainloop()
+
+
