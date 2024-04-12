@@ -23,11 +23,11 @@ def ValuesCheck(*args):
             return False
     return True
 
-def mainEx():
+def Calculate():
     first, second, third = GetAllEntrys()
     if ValuesCheck(first, second, third):
         d = GetDiscriminant(first, second, third)
-        f_x, s_x = find_xy(d)
+        f_x, s_x = FindXY(d)
 
         result_label_f_frame.config(text = f"D = {int(d)},\nx1 = {f_x},\nx2 = {s_x}")
     else:
@@ -36,7 +36,7 @@ def mainEx():
 def GetDiscriminant(first, second, third):
     return (float(second) ** 2.) - (4. * float(first) * float(third))
 
-def find_xy(d):
+def FindXY(d):
     first, second, third = GetAllEntrys()
     if d < 0:
         return "Нет корней", "Нет корней"
@@ -98,7 +98,7 @@ f_entry_f_frame = entry_list[0]
 s_entry_f_frame = entry_list[1]
 t_entry_f_frame = entry_list[2]
 
-f_button_f_frame = Button(f_frame, text="Решить", bg = "green", fg = "black", activeforeground="black", disabledforeground="black", font = default_font, command = mainEx) 
+f_button_f_frame = Button(f_frame, text="Решить", bg = "green", fg = "black", activeforeground="black", disabledforeground="black", font = default_font, command = Calculate) 
 s_button_f_frame = Button(f_frame, text="График", bg = "green", fg = "black", activeforeground="black", disabledforeground="black", font = default_font, command= grafik) 
 
 f_frame_elements = [f_entry_f_frame, f_label_f_frame, s_entry_f_frame, s_label_f_frame, t_entry_f_frame, t_label_f_frame, fo_label_f_frame]
