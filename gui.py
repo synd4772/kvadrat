@@ -81,10 +81,14 @@ main_label = Label(root, text = "Решение квадратного урав�
 main_label.pack()
 
 f_frame = Frame(root)
-f_label_f_frame = Label(f_frame, text = "x**2+")
-s_label_f_frame = Label(f_frame, text = "x+")
-t_label_f_frame = Label(f_frame, text = "=")
-fo_label_f_frame = Label(f_frame, text = "0")
+label_list_text = ["x²+", "x+", "=", "0"]
+label_list = list()
+for index, i in enumerate(label_list_text):
+    label_list.append(Label(f_frame, text = label_list_text[index]))
+f_label_f_frame = label_list[0]
+s_label_f_frame = label_list[1]
+t_label_f_frame = label_list[2]
+fo_label_f_frame = label_list[3]
 
 entry_list = list()
 for i in range(3):
