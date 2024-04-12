@@ -123,6 +123,7 @@ def babochka():
     y16= 1.5*x16+2
 
     plt.figure()
+    
     plt.plot(x1,y1,"b-d",x2,y2,"b-d",x3,y3,"b-d",x4,y4,"b-d",x5,y5,"b-d",x6,y6,"b-d",x7,y7,"b-d",x8,y8,"b-d",x9,y9,"b-d",x10,y10,"b-d", x11,y11,"b-d",x12,y12,"b-d",x13,y13,"r-d",x14,y14,"r-d",x15,y15,"r-d",x16,y16,"r-d")
     plt.title("Liblikas")
     plt.ylabel("y")
@@ -241,10 +242,6 @@ label_list_text = ["x²+", "x+", "=", "0"]
 label_list = list()
 for index, i in enumerate(label_list_text):
     label_list.append(Label(f_frame, text = label_list_text[index]))
-f_label_f_frame = label_list[0]
-s_label_f_frame = label_list[1]
-t_label_f_frame = label_list[2]
-fo_label_f_frame = label_list[3]
 
 #Entrys
 entry_list = list()
@@ -264,7 +261,7 @@ s_button_f_frame = buttons_list[1]
 t_button_f_frame = buttons_list[2]
 
 #Packing
-f_frame_elements = [f_entry_f_frame, f_label_f_frame, s_entry_f_frame, s_label_f_frame, t_entry_f_frame, t_label_f_frame, fo_label_f_frame]
+f_frame_elements = [f_entry_f_frame, label_list[0], s_entry_f_frame, label_list[1], t_entry_f_frame, label_list[2], label_list[3]]
 for element in f_frame_elements: 
     element.config(fg = default_fg, font = default_font)
     element.pack(side = "left")
