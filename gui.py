@@ -98,8 +98,14 @@ f_entry_f_frame = entry_list[0]
 s_entry_f_frame = entry_list[1]
 t_entry_f_frame = entry_list[2]
 
-f_button_f_frame = Button(f_frame, text="Решить", bg = "green", fg = "black", activeforeground="black", disabledforeground="black", font = default_font, command = Calculate) 
-s_button_f_frame = Button(f_frame, text="График", bg = "green", fg = "black", activeforeground="black", disabledforeground="black", font = default_font, command= grafik) 
+button_config = [[Calculate, "Решить"], [grafik, "График"]]
+buttons_list = list()
+
+for index, i  in enumerate(button_config):
+    buttons_list.append(Button(f_frame, text=button_config[index][1], bg = "green", fg = "black", activeforeground="black", disabledforeground="black", font = default_font,command = button_config[index][0]))
+
+f_button_f_frame = buttons_list[0]
+s_button_f_frame = buttons_list[1]
 
 f_frame_elements = [f_entry_f_frame, f_label_f_frame, s_entry_f_frame, s_label_f_frame, t_entry_f_frame, t_label_f_frame, fo_label_f_frame]
 for element in f_frame_elements: 
