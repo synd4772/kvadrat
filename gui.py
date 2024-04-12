@@ -244,7 +244,7 @@ result_label_f_frame.pack()
 
 #----- Another ------
 s_frame = Frame(root, width=200, height = 200)
-show_another = True
+show_another = False
 var = IntVar()
 R1 = Radiobutton(s_frame, text="kala", variable=var, value = 1)
 R2 = Radiobutton(s_frame, text="prillid", variable=var, value = 2)
