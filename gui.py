@@ -37,6 +37,7 @@ def kala():
     plt.xlabel("x")
     plt.grid(True)
     plt.show()
+
 def prillid():
     x1 = np.arange(-9, -0.5, 0.5)
     x2 = np.arange(1, 9.5, 0.5)
@@ -56,11 +57,12 @@ def prillid():
 
     plt.figure()
     plt.plot(x1,y1,x2,y2,x3,y3,x4,y4,x5,y5,x6,y6,x7,y7)
-    plt.title("Kala")
+    plt.title("Prillid")
     plt.ylabel("y")
     plt.xlabel("x")
     plt.grid(True)
     plt.show()
+
 def zontik():
     x1 = np.arange(-12, 12.5, 0.5)
     x2 = np.arange(-4, 4.5, 0.5)
@@ -68,7 +70,6 @@ def zontik():
     x4 = np.arange(4, 12.5, 0.5)
     x5 = np.arange(-4, 0.5, 0.5)
     x6 = np.arange(-4, 0.7, 0.5)
-
 
     y1= (-1/18)*x1**2+12
     y2= (-1/8)*x2**2+6
@@ -79,18 +80,61 @@ def zontik():
 
     plt.figure()
     plt.plot(x1,y1,x2,y2,x3,y3,x4,y4,x5,y5,x6,y6)
-    plt.title("Kala")
+    plt.title("Vihmavari")
     plt.ylabel("y")
     plt.xlabel("x")
     plt.grid(True)
     plt.show()
-func_list = [kala, prillid, zontik]
+
+def babochka():
+    x1 = np.arange(-9, -0.5, 0.5)
+    x2 = np.arange(1, 9.5, 0.5)
+    x3 = np.arange(-9, -7.5, 0.5)
+    x4 = np.arange(8, 9.5, 0.5)
+    x5 = np.arange(-8, -0.5, 0.5)
+    x6 = np.arange(1, 8.5, 0.5)
+    x7 = np.arange(-8, -0.5, 0.5)
+    x8 = np.arange(1, 8.5, 0.5)
+    x9 = np.arange(-8, -1.5, 0.5)
+    x10 = np.arange(2,8.5,0.5)
+    x11 = np.arange(-2,-0.5,0.5)
+    x12 = np.arange(1,2.5,0.5)
+    x13 = np.arange(-1,1.5,0.5)
+    x14 = np.arange(-1,1.5,0.5)
+    x15 = np.arange(-2,0.5,0.5)
+    x16 = np.arange(0,2.5,0.5)
+
+
+    y1= (-1/8)*(x1+9)**2+8
+    y2= (-1/8)*(x2-9)**2+8
+    y3= 7*(x3+8)**2+1
+    y4= 7*(x4-8)**2+1
+    y5= (1/49)*(x5+1)**2
+    y6= (1/49)*(x6-1)**2
+    y7= (-4/49)*(x7+1)**2
+    y8= (-4/49)*(x8-1)**2
+    y9= (1/3)*(x9+5)**2-7
+    y10= (1/3)*(x10-5)**2-7
+    y11= -2*(x11+1)**2-2
+    y12= -2*(x12-1)**2-2
+    y13= -4*x13**2+2
+    y14= 4*x14**2-6
+    y15 = -1.5*x15+2
+    y16= 1.5*x16+2
+
+    plt.figure()
+    plt.plot(x1,y1,"r-d",x2,y2,"r-d",x3,y3,"r-d",x4,y4,"r-d",x5,y5,"r-d",x6,y6,"r-d",x7,y7,"r-d",x8,y8,"r-d",x9,y9,"r-d",x10,y10,"r-d", x11,y11,"r-d",x12,y12,"r-d",x13,y13,"r-d",x14,y14,"r-d",x15,y15,"r-d",x16,y16,"r-d")
+    plt.title("Liblikas")
+    plt.ylabel("y")
+    plt.xlabel("x")
+    plt.grid(True)
+    plt.show()
+func_list = [kala, prillid, zontik, babochka]
 #
 #+--------------------------------------------------------------------------------------------------+
 
 def ShowAnother():
     global show_another
-    print(show_another)
     if not show_another:
         t_button_f_frame['text'] = "Скрыть"
         root.geometry(f"{g_x}x{800}")
@@ -98,6 +142,7 @@ def ShowAnother():
         R1.pack()
         R2.pack()
         R3.pack()
+        R4.pack()
         show_another = True
     else:
         t_button_f_frame['text'] = "Раскрыть"
@@ -127,7 +172,6 @@ def Calculate():
     if ValuesCheck(first, second, third):
         d = GetDiscriminant(first, second, third)
         f_x, s_x = FindXY(d)
-
         result_label_f_frame.config(text = f"D = {int(d)},\nx1 = {f_x},\nx2 = {s_x}")
     else:
         mb.showwarning("Внимание", "Неправильные значение, проверьте нету ли пустых записей или букв в записях")
@@ -145,12 +189,10 @@ def FindXY(d):
 
         s_x_f = (second * -1.) - math.sqrt(int(d))
         s_x_s = float(s_x_f) / (2 * first)
-
     return round(f_x_s, 2), round(s_x_s, 2)
 
 
 def grafik():
-    print(show_another)
     if show_another:
         for index, i in enumerate(func_list):
             if index + 1 == int(var.get()):
@@ -174,9 +216,6 @@ def grafik():
   
 #+--------------------------------------------------------------------------------------------------+
 #+--------------------------------------------------------------------------------------------------+
-
-
-
 
 #Default parameters
 g_x = 1000
@@ -241,7 +280,6 @@ result_label_f_frame = Label(root, text="Решение", bg = "yellow", fg = "b
 result_label_f_frame.pack()
 
 
-
 #----- Another ------
 s_frame = Frame(root, width=200, height = 200)
 show_another = False
@@ -249,6 +287,7 @@ var = IntVar()
 R1 = Radiobutton(s_frame, text="kala", variable=var, value = 1)
 R2 = Radiobutton(s_frame, text="prillid", variable=var, value = 2)
 R3 = Radiobutton(s_frame, text="zontik", variable=var, value = 3 )
+R4 = Radiobutton(s_frame, text="liblikas", variable=var, value = 4)
 
 
 #Starting
